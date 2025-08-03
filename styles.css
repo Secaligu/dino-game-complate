@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  background: #f1f8e9;
+  font-family: sans-serif;
+}
+
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #ffffff;
+  overflow: hidden;
+  border-bottom: 3px solid #388e3c;
+}
+
+.instruction {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+.score {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #b6b6b6;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 3px;
+  background-color: #33691e;
+  animation: groundMove 1s linear infinite;
+}
+
+@keyframes groundMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Dino structure */
+.dino {
+  position: absolute;
+  bottom: 2px;
+  left: 40px;
+  width: 44px;
+  height: 47px;
+}
+
+.dino-body, .dino-head, .dino-eye, .dino-mouth,
+.dino-arm, .dino-leg1, .dino-leg2, .dino-tail {
+  position: absolute;
+  background: #54c257;
+}
+
+.dino-body {
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  bottom: 10px;
+}
+
+.dino-head {
+  width: 20px;
+  height: 20px;
+  left: -5px;
+  top: 0;
+}
+
+.dino-eye {
+  width: 4px;
+  height: 4px;
+  background: #000;
+  top: 5px;
+  left: 2px;
+  border-radius: 50%;
+}
+
+.dino-mouth {
+  position: absolute;
+  width: 8px;
+  height: 3px;
+  top: 14px;
+  left: -13px;      /* Cambia la boca al otro lado de la cabeza */
+  background-color: #222;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+/* Boca abierta al saltar */
+.dino.mouth-open .dino-mouth {
+  width: 10px;
+  height: 6px;
+  top: 15px;
+  left: -11px;      /* Boca abierta al otro lado */
+  background-color: red;
+  border-radius: 50%;
+}
+
+.dino-arm {
+  width: 6px;
+  height: 3px;
+  left: 20px;
+  top: 15px;
+}
+
+.dino-leg1, .dino-leg2 {
+  width: 6px;
+  height: 10px;
+  background: #2e7d32;
+  bottom: 0;
+}
+
+.dino-leg1 { left: 8px; }
+.dino-leg2 { left: 20px; }
+
+.dino-tail {
+  width: 10px;
+  height: 5px;
+  bottom: 10px;
+  right: -5px;
+  transform: rotate(15deg);
+  background: #388e3c;
+}
+.dino-hat {
+  position: absolute;
+  width: 27px;
+  height: 7px;
+  top: -8px;
+  left: -5px;
+  background-color: #111;
+  border-radius: 2px;
+  transform: rotate(-15deg); /* sombrero inclinado */
+  z-index: 10;
+  box-shadow: 0 -5px 0 #666; /* banda del sombrero */
+}
+
+/* Cactus styles */
+.cactus, .cactus-small {
+  position: absolute;
+  bottom: 2px;
+  background: #388e3c;
+}
+
+.cactus {
+  width: 20px;
+  height: 40px;
+  right: -30px;
+}
+
+.cactus-small {
+  width: 14px;
+  height: 30px;
+  right: -60px;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: #d32f2f;
+}
+
+button {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
